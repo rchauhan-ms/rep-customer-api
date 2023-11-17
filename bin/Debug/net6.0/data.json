@@ -1,0 +1,17 @@
+[
+    {
+        "CustomerId": 1,
+        "Name": "Arjun Kapoor",
+        "IsValid": true
+    },
+    {
+        "CustomerId": 2,
+        "Name": "Alan Donald",
+        "IsValid": false
+    },
+    {
+        "CustomerId": 3,
+        "Name": "Ganpat",
+        "IsValid": true
+    }
+]

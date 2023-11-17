@@ -1,0 +1,1 @@
+public record Response<T>(T Obj, bool IsSuccess, string StatusCode, string message = "Unknown error occurred !");

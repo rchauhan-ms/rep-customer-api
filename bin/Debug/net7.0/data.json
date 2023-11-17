@@ -1,0 +1,32 @@
+[
+    {
+        "CustomerId": 1,
+        "Name": "Arjun Kapoor",
+        "IsValid": true
+    },
+    {
+        "CustomerId": 2,
+        "Name": "Alan Donald",
+        "IsValid": false
+    },
+    {
+        "CustomerId": 3,
+        "Name": "Ganpat",
+        "IsValid": true
+    },
+    {
+        "CustomerId": 4,
+        "Name": "Aishwariya Rai",
+        "IsValid": true
+    },
+    {
+        "CustomerId": 5,
+        "Name": "Mark Jones",
+        "IsValid": false
+    },
+    {
+        "CustomerId": 6,
+        "Name": "Pankaj Kapoor",
+        "IsValid": true
+    }
+]
