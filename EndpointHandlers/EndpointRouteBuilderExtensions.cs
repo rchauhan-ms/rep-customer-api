@@ -2,7 +2,7 @@ public static class EndpointRouteBuilderExtensions
 {
     public static void RegisterCustomersEndpoints(this IEndpointRouteBuilder endpointRouteBuilder)
     {
-        var customerEndpoints= endpointRouteBuilder.MapGroup("/customers").RequireAuthorization();
+        var customerEndpoints= endpointRouteBuilder.MapGroup("/customers");
         var customerWithIdEndpoints = customerEndpoints.MapGroup("/{customerId:int}");
         var customersWithBatchEndpoints = customerEndpoints.MapGroup("/batch");
 
