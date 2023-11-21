@@ -5,8 +5,11 @@ using Microsoft.AspNetCore.Diagnostics;
 var builder = WebApplication.CreateBuilder(args);
 
 
+// builder.Services.AddDbContext<OmsarasDbContext>(options=> 
+//                                     options.UseInMemoryDatabase("OmsarasDb"));
 builder.Services.AddDbContext<OmsarasDbContext>(options=> 
-                                    options.UseInMemoryDatabase("OmsarasDb"));
+                                        options.UseSqlite());
+
 builder.Services.AddProblemDetails();
 builder.Services.AddAuthentication().AddJwtBearer();
 builder.Services.AddAuthorization();
