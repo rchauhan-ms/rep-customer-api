@@ -6,8 +6,7 @@ public static class EndpointRouteBuilderExtensions
         var customerWithIdEndpoints = customerEndpoints.MapGroup("/{customerId:int}");
         var customersWithBatchEndpoints = customerEndpoints.MapGroup("/batch");
 
-        customerEndpoints.MapGet("", CustomerHandlers.GetCustomersAsync)
-                         .RequireAuthorization("RequireAuthorizationFromAustralia");
+        customerEndpoints.MapGet("", CustomerHandlers.GetCustomersAsync).RequireAuthorization();
                          
         customerWithIdEndpoints.MapGet("", CustomerHandlers.GetCustomerByIdAsync)
                                 .WithName("GetCustomerById")

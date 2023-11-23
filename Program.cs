@@ -7,16 +7,21 @@ var builder = WebApplication.CreateBuilder(args);
 
 // builder.Services.AddDbContext<OmsarasDbContext>(options=> 
 //                                     options.UseInMemoryDatabase("OmsarasDb"));
+//get connectionstring from configuration file
+
+var connectionString = builder.Configuration
+                              .GetConnectionString("WebApiDatabase");
+
 builder.Services.AddDbContext<OmsarasDbContext>(options=> 
-                                        options.UseSqlite());
+        options.UseSqlite(connectionString));
 
 builder.Services.AddProblemDetails();
 builder.Services.AddAuthentication().AddJwtBearer();
 builder.Services.AddAuthorization();
-builder.Services.AddAuthorizationBuilder()
-                .AddPolicy("RequireAuthorizationFromAustralia", 
-                            policy => policy.RequireRole("admin")
-                                            .RequireClaim("country", "Australia"));
+// builder.Services.AddAuthorizationBuilder()
+//                 .AddPolicy("RequireAuthorizationFromAustralia", 
+//                             policy => policy.RequireRole("admin")
+//                                             .RequireClaim("country", "Australia"));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => 
 {
