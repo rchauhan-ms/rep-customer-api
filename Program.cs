@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,30 +26,30 @@ builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => 
 {
-    options.AddSecurityDefinition("TokenAuthAus",
-        new()
-        {
-            Name = "Authorization",
-            Description = "Token-based authentication and authorization",
-            Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
-            Scheme = "Bearer",
-            In = Microsoft.OpenApi.Models.ParameterLocation.Header
-        });
+    // options.AddSecurityDefinition("TokenAuthAus",
+    //     new()
+    //     {
+    //         Name = "Authorization",
+    //         Description = "Token-based authentication and authorization",
+    //         Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+    //         Scheme = "Bearer",
+    //         In = Microsoft.OpenApi.Models.ParameterLocation.Header
+    //     });
 
-    options.AddSecurityRequirement(new()
-        {
-            {
-                new()
-                {
-                    Reference = new Microsoft.OpenApi.Models.OpenApiReference
-                    {
-                        Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
-                        Id = "TokenAuthAus"
-                    }
-                }, 
-                new List<string>()
-            }
-        });
+    // options.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    //     {
+    //         {
+    //             new OpenApiSecurityScheme()
+    //             {
+    //                 Reference = new Microsoft.OpenApi.Models.OpenApiReference
+    //                 {
+    //                     Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+    //                     Id = "TokenAuthAus"
+    //                 }
+    //             }, 
+    //             new string[]{}
+    //         }
+    //     });
 });
 
 //builder.Services.AddDatabaseDeveloperPageExceptionFilter();
