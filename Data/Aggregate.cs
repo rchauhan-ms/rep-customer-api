@@ -5,4 +5,8 @@ public class AggregateExample{
     {
         return Price.Aggregate((x,y)=> x+y);
     }
+    public static int SumTwoNumbers(int a, int b)
+    {
+        return a+b;
+    }
 }
